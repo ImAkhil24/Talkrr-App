@@ -1,3 +1,5 @@
+import parse from 'html-react-parser';
+
 const TheirMessage = ({lastMessage, message}) => {
   // of if last message doesn't exist
   const isFirstMessage = !lastMessage || lastMessage.sender.username !== message.sender.username;
@@ -12,17 +14,17 @@ const TheirMessage = ({lastMessage, message}) => {
       )
       }
           {
-          (message?.attachements?.length > 0)?
+          (message?.attachments?.length > 0)?
            (
             <img
-              src = {message.attachements[0].file}
-              alt = "message-attachement"
+              src = {message.attachments[0].file}
+              alt = "message-attachment"
               className = "message-image" 
               style={{ marginLeft: isFirstMessage ? '4px' : '48px'}}
             />
           ) : (
             <div className="message" style={{float: 'left', backgroundColor: '#CABCDC', marginLeft: isFirstMessage ? '4px' : '48px'}}>
-            {message.text}
+            {parse(message.text)}
             </div>
           )
         }

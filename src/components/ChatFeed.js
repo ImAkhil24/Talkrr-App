@@ -15,7 +15,6 @@ const chatFeed = (props) => {
     const messageId = Object.keys(messages);
     // the messages are gonna have the read receipt and my message is going to render differently.
 
-    console.log(userName);
 
     return messageId.map((messageId,index) =>{
       const message = messages[messageId];
