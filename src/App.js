@@ -1,7 +1,7 @@
 import { ChatEngine } from 'react-chat-engine';
 
 import ChatFeed from './components/ChatFeed'
-// import './App.css';
+import './App.css';
 
 const app = () => {
   return (
