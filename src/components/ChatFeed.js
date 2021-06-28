@@ -4,11 +4,31 @@ import TheirMessage from "./TheirMessage";
 
 
 const chatFeed = (props) => {
+  // console.log(props);
   const { chats, activeChat, userName, messages } = props;
   
   // first extracting the active chat from the chats object
 
   const chat = chats && chats[activeChat];
+  // console.log(chat);
+
+  const renderReadReceipts = (message, isMyMessage) => {
+    // the last_read gets the id of last message.
+
+    // wasted so much time the return keyword was missing.
+    return chat.people.map((person, index) => person.last_read === message.id && (
+      <div
+        key={index}
+        className="read-receipt"
+        style={{
+          float: isMyMessage? 'right' : 'left',
+          backgroundImage:`url(${person.person.avatar})`
+        }}
+      > </div>
+    ))
+  }
+
+
 
   const renderMessages = () => {
     // extract the message ids from the messages
@@ -22,7 +42,7 @@ const chatFeed = (props) => {
       const isMyMessage = userName === message.sender.username;
 
       // I don't know whether the messageId will be always unique
-
+      // console.log(message,"this is inside the renderMessages");
       return (
         <div key = {index} style ={{width:'100%'}}>
           <div className="message-block">
@@ -33,7 +53,7 @@ const chatFeed = (props) => {
           }
           </div>
           <div className="read-receipts" style={{ marginRight: isMyMessage ?'18px':'0px', marginLeft: isMyMessage ? '0px': '68px'}}>
-            read-receipts
+            {renderReadReceipts(message, isMyMessage)}
           </div>
         </div>
       );
