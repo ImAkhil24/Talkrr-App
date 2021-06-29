@@ -2,6 +2,13 @@
 
 A Real time React Chat application built using **React hooks**, **React chat Engine**.
 
+It's a Simple React project which I developed while learning React.
+
+## Funcionlaity
+- Basic chatting features like sending messages,images and read-receipts are supported.
+- Html markup is also supported in the texts.
+- Planning to add more features like sound notification and Chat Passwords in future.  
+
 **Application Hosted here : [Talkrr](https://talkrr.netlify.app/)**
 
 > To Try out the app, login with a Guest credential provided below :
